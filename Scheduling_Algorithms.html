@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Scheduling Simulator</title>
+    <link rel="stylesheet" href="Scheduling_Algorithms.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Process Scheduling Simulator</h1>
+        
+        <div class="card">
+            <div class="algorithm-select">
+                <label>Algorithm:</label>
+                <select id="algorithm" onchange="toggleQuantumInput()">
+                    <option value="fcfs">First-Come, First-Served (FCFS)</option>
+                    <option value="rr">Round-Robin (RR)</option>
+                    <option value="sjf">Shortest Job First (SJF)</option>
+                    <option value="srtf">Shortest Remaining Time First (SRTF)</option>
+                    <option value="priority">Priority Scheduling</option>
+                    <option value="hrrn">Highest Response Ratio Next (HRRN)</option>
+                    <option value="mlq">Multilevel Queue with Feedback</option>
+                </select>
+                <div id="quantum-container" style="display: none;">
+                    <label>Time Quantum:</label>
+                    <input type="number" id="timeQuantum" min="1" value="1">
+                </div>
+                <button onclick="simulate()">Calculate</button>
+            </div>
+            
+
+            <div id="processes">
+                <!-- Processes will be added here -->
+            </div>
+
+            <button class="add-btn">Add Process</button>
+        </div>
+
+        <div id="results" class="card hidden">
+            <h2>Results</h2>
+            <div class="gantt-container">
+                <h3>Gantt Chart</h3>
+                <div id="gantt-chart"></div>
+                <div id="gantt-timeline"></div>
+            </div>
+            <div id="averages"></div>
+        </div>
+    </div>
+    <script defer src="Scheduling_Algorithms.js"></script>
+</body>
+</html>
